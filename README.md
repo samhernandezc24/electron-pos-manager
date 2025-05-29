@@ -1,34 +1,43 @@
-# react-electron-app
+# Aplicación de Escritorio - Punto de Venta
 
-An Electron application with React and TypeScript
+Aplicación de escritorio construida con **Electron + React + Vite + TailwindCSS** para gestionar negocios, incluyendo:
+- Usuarios y clientes
+- Productos y catálogo
+- Punto de venta (POS)
+- Movimientos de caja y gastos
+- Reportes y cortes
 
-## Recommended IDE Setup
+---
 
-- [VSCode](https://code.visualstudio.com/) + [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) + [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+## 🚀 Bajo el Capó
 
-## Project Setup
+- [**Electron**](https://www.electronjs.org): Framework para crear apps de escritorio usando tecnologías web.
+- [**React**](https://react.dev): Librería declarativa para construir interfaces de usuario.
+- [**Vite**](https://vite.dev): Bundler ultrarápido, ideal para desarrollo moderno.
+- [**React Router**](https://reactrouter.com): Navegación declarativa entre páginas y componentes.
+- [**TailwindCSS**](https://tailwindcss.com): Utilidades modernas para diseño responsive.
+- [**TypeScript**](https://www.typescriptlang.org): Tipado seguro para JavaScript.
 
-### Install
+---
 
-```bash
-$ npm install
-```
+## 🌟 Roadmap (próximas mejoras)
 
-### Development
+- [ ] Autenticación y roles de usuario
+- [ ] CRUD completo para entidades (usuarios, clientes, productos)
+- [ ] Integración con base de datos local
+- [ ] Reportes exportables (PDF/Excel)
+- [ ] Mejoras en la UI/UX
 
-```bash
-$ npm run dev
-```
+---
 
-### Build
+## 🧞 Comandos
 
-```bash
-# For windows
-$ npm run build:win
+Todos los comandos se ejecutan desde la raíz del proyecto, desde una terminal:
 
-# For macOS
-$ npm run build:mac
-
-# For Linux
-$ npm run build:linux
-```
+| Comando                   | Acción                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Instala las dependencias                         |
+| `npm run dev`             | Inicializa un servidor local                     |
+| `npm run build:win`       | Construye el proyecto a producción en Windows    |
+| `npm run build:mac`       | Construye el proyecto a producción en MacOS      |
+| `npm run build:linux`     | Construye el proyecto a producción en Linux      | 
