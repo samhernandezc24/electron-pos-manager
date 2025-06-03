@@ -17,6 +17,7 @@ Aplicación de escritorio construida con **Electron + React + Vite + TailwindCSS
 - [**React Router**](https://reactrouter.com): Navegación declarativa entre páginas y componentes.
 - [**TailwindCSS**](https://tailwindcss.com): Utilidades modernas para diseño responsive.
 - [**TypeScript**](https://www.typescriptlang.org): Tipado seguro para JavaScript.
+- [**Iconografia**](https://www.npmjs.com/package/react-icons): Include popular icons in your React projects easily with react-icons.
 
 ---
 

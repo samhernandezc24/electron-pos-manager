@@ -1,16 +1,94 @@
 @import 'tailwindcss';
+@import './bootstrap.css';
 
 @layer base {
-  #root {
-    @apply h-full;
-  }
+	#root {
+		@apply h-full bg-blue-600;
+	}
 
-  html,
-  body {
-    @apply h-full;
-    @apply select-none;
-    @apply bg-zinc-800;
-    @apply font-mono antialiased text-white;
-    @apply overflow-hidden;
-  }
+	html,
+	body {
+		@apply h-full;
+		@apply select-none;
+		@apply bg-zinc-800;
+		@apply font-mono antialiased text-white;
+		@apply overflow-hidden;
+	}
+}
+
+.btn {
+	@apply relative flex items-center justify-center rounded-md border px-5 py-2 text-sm font-semibold shadow-[0_10px_20px_-10px] outline-none transition duration-300 hover:shadow-none cursor-pointer;
+}
+.btn:hover {
+	@apply bg-blue-500 text-white border-blue-600;
+}
+.btn-lg {
+	@apply px-7 py-2.5 text-base;
+}
+.btn-sm {
+	@apply px-2.5 py-1.5 text-xs;
+}
+.btn[disabled] {
+	@apply cursor-not-allowed opacity-60;
+}
+
+.cdx-header {
+	@apply bg-sky-200 rounded p-4 space-y-2 font-sans;
+}
+
+.cdx-header > .cdx-header-title {
+	@apply text-2xl font-semibold text-black;
+}
+
+.cdx-content {
+	height: calc(100vh - 225px);
+	@apply flex flex-col bg-white rounded-lg w-full;
+}
+
+.cdx-content > .cdx-content-container-table {
+	@apply h-full w-full flex-1 overflow-auto rounded-lg;
+}
+
+.cdx-content > .cdx-content-container-table > table.cdx-content-table {
+	@apply min-w-full divide-y divide-gray-200 rounded-lg;
+}
+
+.cdx-content > .cdx-content-container-table > table.cdx-content-table > thead > tr {
+	@apply bg-gray-200 text-gray-600 font-normal;
+}
+
+.cdx-content > .cdx-content-container-table > table.cdx-content-table > thead > tr > th {
+	@apply px-2 py-1 text-left text-sm font-medium text-gray-600 uppercase border-r border-r-gray-100;
+}
+
+.cdx-content > .cdx-content-container-table > table.cdx-content-table > tbody > tr {
+	@apply h-[35px] hover:bg-cyan-50;
+}
+
+.cdx-content > .cdx-content-container-table > table.cdx-content-table > tbody > tr > td {
+	@apply px-2 py-1 h-[35px] min-w-48 text-left text-xs font-normal text-gray-600 uppercase whitespace-pre-wrap;
+}
+
+.cdx-content > .cdx-content-container-table > table.cdx-content-table > tbody > tr > td.cdx-acciones {
+	@apply flex flex-row items-center justify-center space-x-1;
+}
+ 
+.cdx-pagination {
+	@apply flex flex-row list-none text-gray-600;
+}
+
+.cdx-pagination > ul.pagination {
+	@apply flex flex-row ml-auto rounded-sm bg-white border border-gray-300;
+}
+
+.cdx-pagination > ul.pagination > .cdx-pagination-item {
+	@apply px-4 border border-gray-300 hover:text-blue-600 font-semibold;
+}
+
+.cdx-pagination > ul.pagination > .cdx-pagination-item.cdx-pagination-item-start {
+	@apply px-4 border border-gray-300 rounded-l-sm;
+}
+
+.cdx-pagination > ul.pagination > .cdx-pagination-item.cdx-pagination-item-end {
+	@apply px-4 border border-gray-300 rounded-r-sm;
 }
