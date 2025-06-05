@@ -1,7 +1,14 @@
-import { LuBuilding, LuCircleDollarSign, LuCircleUser, LuClipboardPenLine, LuHouse, LuPrinterCheck } from "react-icons/lu";
-import { HashRouter, Link, Route, Routes } from 'react-router-dom';
-import { Cliente } from './components/Clientes';
-import { Content, RootLayout, Sidebar } from './layout';
+import { Cliente } from '@/components'
+import {
+  LuBuilding,
+  LuCircleDollarSign,
+  LuCircleUser,
+  LuClipboardPenLine,
+  LuHouse,
+  LuPrinterCheck
+} from 'react-icons/lu'
+import { HashRouter, Link, Route, Routes } from 'react-router-dom'
+import { Content, RootLayout, Sidebar } from './layout'
 
 function App() {
   return (
@@ -10,22 +17,22 @@ function App() {
         <Sidebar className="p-2">
           <nav className="flex flex-col space-y-2">
             <Link to="/*" className="p-1 hover:underline flex flex-row items-center">
-              <LuHouse className="pr-2 icon-size-32"/> Dashboard
+              <LuHouse className="pr-2 icon-size-32" /> Dashboard
             </Link>
             <Link to="/pos" className="p-1 hover:underline flex flex-row items-center">
-              <LuCircleDollarSign className="pr-2 icon-size-32"/> Punto de Venta
+              <LuCircleDollarSign className="pr-2 icon-size-32" /> Punto de Venta
             </Link>
             <Link to="/usuarios" className="p-1 hover:underline flex flex-row items-center">
-              <LuCircleUser className="pr-2 icon-size-32"/> Usuarios
+              <LuCircleUser className="pr-2 icon-size-32" /> Usuarios
             </Link>
             <Link to="/clientes" className="p-1 hover:underline flex flex-row items-center">
-              <LuBuilding className="pr-2 icon-size-32"/> Clientes
+              <LuBuilding className="pr-2 icon-size-32" /> Clientes
             </Link>
             <Link to="/productos" className="p-1 hover:underline flex flex-row items-center">
-              <LuClipboardPenLine className="pr-2 icon-size-32"/> Productos
+              <LuClipboardPenLine className="pr-2 icon-size-32" /> Productos
             </Link>
             <Link to="/reportes" className="p-1 hover:underline flex flex-row items-center">
-              <LuPrinterCheck  className="pr-2 icon-size-32"/> Reportes
+              <LuPrinterCheck className="pr-2 icon-size-32" /> Reportes
             </Link>
           </nav>
         </Sidebar>
