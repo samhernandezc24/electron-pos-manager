@@ -1,6 +1,8 @@
+import { index } from './index.ts';
+
 declare global {
   interface Window {
     // electron: ElectronAPI
-    context: {}
+    api : index
   }
 }
