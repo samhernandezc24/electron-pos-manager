@@ -1,4 +1,4 @@
-import { contextBridge } from 'electron'
+import { contextBridge, ipcRenderer } from 'electron'
 
 if (!process.contextIsolated) {
   throw new Error('contextIsolation must be enabled in the BrowserWindow')
@@ -6,7 +6,7 @@ if (!process.contextIsolated) {
 
 try {
   contextBridge.exposeInMainWorld('context', {
-    // TODO:
+    ping: () => ipcRenderer.invoke('ping')
   })
 } catch (error) {
   console.error(error)

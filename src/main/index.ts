@@ -18,6 +18,8 @@ function createWindow(): void {
     }
   })
 
+  ipcMain.handle('ping', () => 'pong')
+
   mainWindow.on('ready-to-show', () => {
     mainWindow.maximize()
     mainWindow.show()
