@@ -78,6 +78,6 @@ app.on('window-all-closed', () => {
 
 ipcMain.handle('get-clientes', () => {
   const stmt = context.prepare('SELECT * FROM "Clientes"');
-  console.log(stmt)
+  console.log(stmt);
   return stmt.all(); // Devuelve todos los resultados
 });

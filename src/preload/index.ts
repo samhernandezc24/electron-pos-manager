@@ -6,7 +6,6 @@ if (!process.contextIsolated) {
 
 try {
   contextBridge.exposeInMainWorld('api', {
-    // TODO:
     getClientes: () => ipcRenderer.invoke('get-clientes'),
   });
 } catch (error) {
