@@ -1,8 +1,11 @@
-import { index } from './index.ts';
+import { GetClientes } from '@shared/types'
 
 declare global {
   interface Window {
     // electron: ElectronAPI
-    api : index
+    context: {
+      locale: string
+      getClientes: GetClientes
+    }
   }
 }

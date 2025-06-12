@@ -1,8 +1,9 @@
-import { electronApp, is, optimizer } from '@electron-toolkit/utils';
-import { app, BrowserWindow, ipcMain, shell } from 'electron';
-import { join } from 'path';
-import icon from '../../resources/icon.png?asset';
-import context from "./context_db";
+import { getClientes } from '@/lib'
+import { electronApp, is, optimizer } from '@electron-toolkit/utils'
+import { GetClientes } from '@shared/types'
+import { app, BrowserWindow, ipcMain, shell } from 'electron'
+import { join } from 'path'
+import icon from '../../resources/icon.png?asset'
 
 function createWindow(): void {
   // Create the browser window.
@@ -52,8 +53,7 @@ app.whenReady().then(() => {
     optimizer.watchWindowShortcuts(window)
   })
 
-  // IPC test
-  ipcMain.on('ping', () => console.log('pong'))
+  ipcMain.handle('getClientes', (_, ...args: Parameters<GetClientes>) => getClientes(...args))
 
   createWindow()
 
@@ -76,8 +76,8 @@ app.on('window-all-closed', () => {
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
 
-ipcMain.handle('get-clientes', () => {
-  const stmt = context.prepare('SELECT * FROM "Clientes"');
-  console.log(stmt);
-  return stmt.all(); // Devuelve todos los resultados
-});
+// ipcMain.handle('get-clientes', () => {
+//   const stmt = context.prepare('SELECT * FROM "Clientes"')
+//   console.log(stmt)
+//   return stmt.all() // Devuelve todos los resultados
+// })

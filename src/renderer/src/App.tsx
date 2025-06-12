@@ -1,4 +1,4 @@
-import { Cliente } from '@/components'
+import { ClienteList } from '@/components'
 import {
   LuBuilding,
   LuCircleDollarSign,
@@ -41,7 +41,8 @@ function App() {
             <Route path="*" element={<div>Bienvenido al Panel</div>} />
             <Route path="/pos" element={<div>Punto de Venta Page</div>} />
             <Route path="/usuarios" element={<div>Usuarios Page</div>} />
-            <Route path="/clientes" element={<Cliente></Cliente>} />
+            <Route path="/clientes" element={<ClienteList></ClienteList>} />
+            <Route path="/clientes" element={<div>Clientes Page</div>} />
             <Route path="/productos" element={<div>Productos Page</div>} />
             <Route path="/reportes" element={<div>Reportes Page</div>} />
           </Routes>
