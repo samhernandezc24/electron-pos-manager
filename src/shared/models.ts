@@ -3,5 +3,4 @@ export type MCliente = {
   razonSocial: string
   rfc: string
   direccion: string
-  telefono?: string
 }

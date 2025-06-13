@@ -1,12 +1,24 @@
-import { clientesMock } from '@/store/mocks'
-import { ComponentProps } from 'react'
+import { useClientesList } from '@/hooks/useClientesList'
+import { loadClientesAtom } from '@/store'
+import { PaginadoOverlay } from '@renderer/utils/Paginator'
+import { useSetAtom } from 'jotai'
+import { ComponentProps, useEffect } from 'react'
 import { LuPencilLine, LuTrash2 } from 'react-icons/lu'
 
 export type ClienteListProps = ComponentProps<'div'> & {
-  onSelect?: (cliente: (typeof clientesMock)[0]) => void
+  onSelect?: (cliente: any) => void
 }
 
 export const ClienteList = ({ onSelect, className, ...props }: ClienteListProps) => {
+  const { clientes, selectedRowIndex, handleRowSelect } = useClientesList({ onSelect })
+  const loadClientes = useSetAtom(loadClientesAtom)
+
+  useEffect(() => {
+    loadClientes()
+  }, [loadClientes])
+
+  if (!clientes) return null
+
   return (
     <div className="cdx-header" {...props}>
       <div className="cdx-header-title">Clientes</div>
@@ -19,26 +31,28 @@ export const ClienteList = ({ onSelect, className, ...props }: ClienteListProps)
             placeholder="Buscar cliente... "
           />
         </div>
+      </div>
 
-        <div className="cdx-content">
-          <div className="cdx-content-container-table">
-            <table className="cdx-content-table">
-              <thead className="bg-gray-50">
-                <tr>
-                  <th> Razón social </th>
-                  <th> Acciones </th>
-                  <th> RFC </th>
-                  <th> Dirección </th>
-                  <th> Teléfono </th>
-                </tr>
-              </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
-                {clientesMock.length > 0 ? (
-                  clientesMock.map((cliente) => (
+      <div className="cdx-content">
+        <div className="cdx-content-container-table">
+          <table className="cdx-content-table">
+            <thead className="bg-gray-50">
+              <tr>
+                <th> Razón social </th>
+                <th> Acciones </th>
+                <th> RFC </th>
+                <th> Dirección </th>
+              </tr>
+            </thead>
+            <tbody className="bg-white divide-y divide-gray-200">
+              {clientes.length > 0 ? (
+                clientes.map((cliente, index) => {
+                  const isSelected = index === selectedRowIndex
+                  return (
                     <tr
                       key={cliente.idCliente}
-                      className="hover:bg-gray-50 transition-colors"
-                      onClick={() => onSelect?.(cliente)}
+                      className={`transition-colors ${isSelected ? 'bg-blue-50 border-l-4 border-blue-600' : 'hover:bg-gray-50'}`}
+                      onClick={handleRowSelect(index)}
                     >
                       <td>{cliente.razonSocial}</td>
                       <td className="cdx-acciones">
@@ -51,21 +65,21 @@ export const ClienteList = ({ onSelect, className, ...props }: ClienteListProps)
                       </td>
                       <td>{cliente.rfc}</td>
                       <td>{cliente.direccion}</td>
-                      <td>{cliente.telefono}</td>
                     </tr>
-                  ))
-                ) : (
-                  <tr>
-                    <td colSpan={4} className="p-2 whitespace-nowrap text-center text-gray-500">
-                      No hay clientes registrados
-                    </td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
-          </div>
+                  )
+                })
+              ) : (
+                <tr>
+                  <td colSpan={5} className="p-2 text-center text-gray-500">
+                    No hay clientes registrados
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
         </div>
       </div>
+      <PaginadoOverlay></PaginadoOverlay>
     </div>
   )
 }

@@ -75,9 +75,3 @@ app.on('window-all-closed', () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
-
-// ipcMain.handle('get-clientes', () => {
-//   const stmt = context.prepare('SELECT * FROM "Clientes"')
-//   console.log(stmt)
-//   return stmt.all() // Devuelve todos los resultados
-// })
